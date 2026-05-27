@@ -1,289 +1,777 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elisa Foini | Aspiring Interior Designer</title>
-    <style>
-        /* Reset e Variabili */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio personale di Elisa Foini, aspirante designer con passione per l'interior design e studentessa al 3° anno LABA Brescia." />
+  <title>Elisa Foini | Interior Design Portfolio</title>
 
-        :root {
-            --bg-color: #fcfbf9; /* Bianco caldo, minimale ed elegante */
-            --text-main: #1a1a1a;
-            --text-muted: #707070;
-            --accent: #8c7a6b; /* Tono terra/argilla discreto */
-            --spacing: 10% 8%;
-        }
+  <style>
+    :root {
+      --bg: #f7f2ec;
+      --paper: #fffaf4;
+      --dark: #1f1d1b;
+      --muted: #766e66;
+      --accent: #9a7b5f;
+      --accent-dark: #5c4635;
+      --line: rgba(31, 29, 27, 0.12);
+      --shadow: 0 24px 70px rgba(55, 42, 32, 0.14);
+      --radius: 28px;
+    }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Header e Navigazione */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem 8%;
-            position: sticky;
-            top: 0;
-            background-color: rgba(252, 251, 249, 0.9);
-            backdrop-filter: blur(5px);
-            z-index: 100;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .logo {
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-        }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: var(--text-main);
-            margin-left: 2rem;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-        nav a:hover {
-            color: var(--accent);
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        /* Sezione Hero */
-        .hero {
-            padding: var(--spacing);
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+    .page {
+      overflow: hidden;
+    }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 300;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            max-width: 800px;
-        }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(247, 242, 236, 0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
 
-        .hero h1 strong {
-            font-weight: 600;
-            color: var(--accent);
-        }
+    .nav {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        /* Sezione Bio / Info */
-        .about {
-            padding: var(--spacing);
-            background-color: #f4f1ea;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
+    .logo {
+      font-size: 14px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
 
-        .about h2 {
-            font-size: 2rem;
-            font-weight: 400;
-        }
+    .menu {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      color: var(--muted);
+    }
 
-        .about-text p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
+    .menu a {
+      transition: 0.25s ease;
+    }
 
-        /* Sezione Portfolio */
-        .portfolio {
-            padding: var(--spacing);
-        }
+    .menu a:hover {
+      color: var(--dark);
+    }
 
-        .portfolio h2 {
-            font-size: 2rem;
-            font-weight: 400;
-            margin-bottom: 3rem;
-        }
+    .hero {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 130px 0 80px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 46px;
+      align-items: center;
+    }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+    .eyebrow {
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
 
-        .project-card {
-            background-color: #fff;
-            border: 1px solid #e6e3dc;
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
+    h1 {
+      font-size: clamp(48px, 7vw, 92px);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
+    .hero p {
+      font-size: clamp(18px, 2vw, 22px);
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 34px;
+    }
 
-        .project-img {
-            width: 100%;
-            height: 250px;
-            background-color: #e6e3dc; /* Sfondo temporaneo per le immagini */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-style: italic;
-        }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
 
-        .project-info {
-            padding: 1.5rem;
-        }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid var(--dark);
+      transition: 0.25s ease;
+    }
 
-        .project-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
+    .btn.primary {
+      background: var(--dark);
+      color: white;
+    }
 
-        .project-info p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+    .btn.primary:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+      transform: translateY(-2px);
+    }
 
-        /* Footer / Contatti */
-        footer {
-            padding: var(--spacing);
-            text-align: center;
-            border-top: 1px solid #e6e3dc;
-        }
+    .btn.secondary:hover {
+      background: var(--paper);
+      transform: translateY(-2px);
+    }
 
-        footer h2 {
-            margin-bottom: 1rem;
-            font-weight: 400;
-        }
+    .hero-visual {
+      position: relative;
+      min-height: 610px;
+    }
 
-        .email-link {
-            color: var(--text-main);
-            font-weight: 700;
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+    .hero-img-main {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 82%;
+      height: 72%;
+      object-fit: cover;
+      border-radius: 42px;
+      box-shadow: var(--shadow);
+    }
 
-        .email-link:hover {
-            color: var(--accent);
-        }
+    .hero-img-small {
+      position: absolute;
+      left: 0;
+      bottom: 34px;
+      width: 48%;
+      height: 42%;
+      object-fit: cover;
+      border-radius: 34px;
+      border: 10px solid var(--bg);
+      box-shadow: var(--shadow);
+    }
 
-        .social-links {
-            margin-top: 2rem;
-        }
+    .floating-card {
+      position: absolute;
+      right: 20px;
+      bottom: 0;
+      width: min(330px, 70%);
+      background: rgba(255, 250, 244, 0.92);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
 
-        .social-links a {
-            color: var(--text-muted);
-            margin: 0 1rem;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
+    .floating-card strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
 
-        .social-links a:hover {
-            color: var(--text-main);
-        }
+    .floating-card span {
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-        /* Responsive per Smartphone */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .about { grid-template-columns: 1fr; gap: 2rem; }
-            header { flex-direction: column; gap: 1rem; }
-            nav a { margin: 0 1rem; }
-        }
-    </style>
+    section {
+      padding: 110px 0;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 48px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      max-width: 650px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 440px;
+      font-size: 17px;
+    }
+
+    .about {
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .about-media {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .about-media img {
+      height: 440px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 32px;
+      box-shadow: 0 18px 48px rgba(55, 42, 32, 0.1);
+    }
+
+    .about-media img:nth-child(2) {
+      margin-top: 54px;
+      height: 360px;
+    }
+
+    .about-text h2 {
+      font-size: clamp(34px, 5vw, 60px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 28px;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 20px;
+      background: white;
+    }
+
+    .stat strong {
+      font-size: 28px;
+      display: block;
+      line-height: 1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service {
+      padding: 34px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255, 250, 244, 0.65);
+      min-height: 250px;
+      transition: 0.25s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-6px);
+      background: var(--paper);
+      box-shadow: 0 18px 48px rgba(55, 42, 32, 0.1);
+    }
+
+    .number {
+      font-size: 13px;
+      color: var(--accent-dark);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+    }
+
+    .service h3 {
+      font-size: 24px;
+      margin: 46px 0 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .service p {
+      color: var(--muted);
+    }
+
+    .portfolio {
+      background: var(--dark);
+      color: var(--paper);
+    }
+
+    .portfolio .section-head p,
+    .portfolio .eyebrow {
+      color: #c9b8a6;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      grid-column: span 4;
+      background: #292622;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 30px;
+      overflow: hidden;
+      transition: 0.25s ease;
+    }
+
+    .project-card.large {
+      grid-column: span 8;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.28);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      background: #3a352f;
+    }
+
+    .project-card.large img {
+      height: 430px;
+    }
+
+    .project-info {
+      padding: 24px;
+    }
+
+    .project-info h3 {
+      font-size: 23px;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .project-info p {
+      color: #c9b8a6;
+      font-size: 15px;
+    }
+
+    .contact-box {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 42px;
+      padding: clamp(34px, 7vw, 76px);
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 {
+      font-size: clamp(36px, 5vw, 66px);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: 18px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 620px;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: white;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .contact-link:hover {
+      transform: translateX(5px);
+      border-color: var(--accent);
+    }
+
+    footer {
+      padding: 34px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .about-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 520px;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 16px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card,
+      .project-card.large {
+        grid-column: span 12;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav {
+        height: auto;
+        padding: 18px 0;
+        display: block;
+      }
+
+      .menu {
+        margin-top: 12px;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        padding-top: 150px;
+      }
+
+      .hero-visual {
+        min-height: 430px;
+      }
+
+      .hero-img-main {
+        width: 92%;
+        height: 65%;
+      }
+
+      .hero-img-small {
+        width: 58%;
+        height: 34%;
+      }
+
+      .floating-card {
+        width: 86%;
+        right: 0;
+      }
+
+      section {
+        padding: 78px 0;
+      }
+
+      .about-media {
+        grid-template-columns: 1fr;
+      }
+
+      .about-media img,
+      .about-media img:nth-child(2) {
+        margin: 0;
+        height: 300px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card img,
+      .project-card.large img {
+        height: 300px;
+      }
+    }
+  </style>
 </head>
-<body>
 
-    <!-- Header -->
+<body>
+  <div class="page">
     <header>
-        <div class="logo">Elisa Foini</div>
-        <nav>
-            <a href="#about">Chi Sono</a>
-            <a href="#portfolio">Progetti</a>
-            <a href="#contact">Contatti</a>
+      <div class="nav">
+        <a class="logo" href="#">Elisa Foini</a>
+        <nav class="menu" aria-label="Menu principale">
+          <a href="#about">Chi sono</a>
+          <a href="#skills">Approccio</a>
+          <a href="#portfolio">Progetti</a>
+          <a href="#contact">Contatti</a>
         </nav>
+      </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>
-            Plasmare gli spazi per raccontare storie. Sono un <strong>aspirante designer</strong> con una viscerale passione per l'<strong>interior design</strong>.
-        </h1>
-    </section>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Interior design · LABA Brescia</div>
+          <h1>Spazi pensati per essere vissuti.</h1>
+          <p>
+            Sono Elisa Foini, aspirante designer con una forte passione per l'interior design.
+            Frequento il 3° anno del corso di Design presso LABA Brescia e sviluppo concept
+            dove estetica, funzione, materiali e luce lavorano insieme.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#portfolio">Guarda i progetti</a>
+            <a class="btn secondary" href="#contact">Contattami</a>
+          </div>
+        </div>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2>Il mio percorso</h2>
-        <div class="about-text">
+        <div class="hero-visual" aria-label="Anteprima progetti di interior design">
+          <img class="hero-img-main" src="cucina.png" alt="Render o progetto di cucina moderna" />
+          <img class="hero-img-small" src="spaccato.png" alt="Spaccato progettuale di interior design" />
+          <div class="floating-card">
+            <strong>Design, interni e dettagli</strong>
+            <span>Un portfolio in evoluzione, nato da studio, ricerca e passione per gli spazi abitativi.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="container about-grid">
+          <div class="about-media">
+            <img src="ChatGPT%20Immagine%2019%20mag%202026,%2015_05_59.png" alt="Immagine concept di interior design" />
+            <img src="spaccato%202.png" alt="Studio di progetto e composizione degli spazi" />
+          </div>
+
+          <div class="about-text">
+            <div class="eyebrow">Chi sono</div>
+            <h2>Un percorso tra creatività, tecnica e sensibilità per gli interni.</h2>
             <p>
-                Attualmente sto frequentando il <strong>3° anno del corso di Design presso la LABA (Libera Accademia di Belle Arti) di Brescia</strong>. Questo percorso mi sta permettendo di unire il rigore tecnico della progettazione spaziale alla sensibilità estetica dei materiali, dei volumi e della luce.
+              Studio Design presso l'Accademia LABA di Brescia, dove sto costruendo un metodo progettuale
+              basato su ricerca, composizione, proporzioni, materiali e attenzione all'esperienza delle persone.
             </p>
             <p>
-                Credo che l'interior design non sia solo arredare un ambiente, ma ottimizzare l'esperienza umana all'interno dello spazio, creando un'armonia profonda tra funzionalità, estetica e benessere.
+              Mi interessa l'interior design perché permette di trasformare un ambiente in uno spazio capace
+              di comunicare identità, ordine, comfort e atmosfera.
             </p>
-        </div>
-    </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <h2>Progetti Selezionati</h2>
-        <div class="grid">
-            
-            <!-- Progetto 1 -->
-            <div class="project-card">
-                <div class="project-img">Inserisci Render/Foto qui</div>
-                <div class="project-info">
-                    <h3>Progetto di Interior 1</h3>
-                    <p>Concept di interior design residenziale o commerciale sviluppato in accademia.</p>
-                </div>
+            <div class="stats">
+              <div class="stat">
+                <strong>3°</strong>
+                <span>Anno LABA Brescia</span>
+              </div>
+              <div class="stat">
+                <strong>Design</strong>
+                <span>Corso accademico</span>
+              </div>
+              <div class="stat">
+                <strong>Interior</strong>
+                <span>Passione principale</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Approccio</div>
+              <h2>Dal concept alla percezione dello spazio.</h2>
+            </div>
+            <p>
+              Ogni progetto nasce dall'osservazione: esigenze, materiali, colori, luce e funzionalità diventano
+              strumenti per costruire ambienti equilibrati.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <article class="service">
+              <span class="number">01</span>
+              <h3>Concept creativo</h3>
+              <p>Moodboard, riferimenti visivi, palette colori e studio dello stile per dare identità al progetto.</p>
+            </article>
+
+            <article class="service">
+              <span class="number">02</span>
+              <h3>Interior design</h3>
+              <p>Studio degli ambienti, degli arredi, dei materiali e della relazione tra estetica e utilizzo quotidiano.</p>
+            </article>
+
+            <article class="service">
+              <span class="number">03</span>
+              <h3>Dettaglio e atmosfera</h3>
+              <p>Attenzione a luce, texture, proporzioni e piccoli elementi che rendono uno spazio più armonioso.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="portfolio" id="portfolio">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Portfolio</div>
+              <h2>Progetti e sperimentazioni.</h2>
+            </div>
+            <p>
+              Una selezione di immagini e concept da aggiornare con lavori accademici, render,
+              moodboard e progetti personali.
+            </p>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card large">
+              <img src="cucina.png" alt="Progetto cucina moderna" />
+              <div class="project-info">
+                <h3>Living & cucina</h3>
+                <p>Studio di un ambiente domestico contemporaneo: composizione, materiali e atmosfera.</p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="spaccato.png" alt="Spaccato progettuale" />
+              <div class="project-info">
+                <h3>Spaccato progettuale</h3>
+                <p>Rappresentazione dello spazio e analisi della relazione tra volumi e funzioni.</p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="spaccato%202.png" alt="Secondo studio spaccato" />
+              <div class="project-info">
+                <h3>Studio degli interni</h3>
+                <p>Approfondimento visivo sulla distribuzione e sulla lettura degli ambienti.</p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="PROPOSTA%201%20CARTONGESSO/1%20CARTONGESSO_style_transfer01.png" alt="Proposta cartongesso 1" />
+              <div class="project-info">
+                <h3>Proposta cartongesso</h3>
+                <p>Studio di pareti, nicchie e soluzioni decorative per valorizzare gli interni.</p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="PROPOSTA%201%20CARTONGESSO/1.2_style_transfer01.png" alt="Proposta cartongesso 2" />
+              <div class="project-info">
+                <h3>Variante materica</h3>
+                <p>Esplorazione di finiture, pieni e vuoti, con attenzione alla percezione dello spazio.</p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="PROPOSTA%201%20CARTONGESSO/1.3_style_transfer01.png" alt="Proposta cartongesso 3" />
+              <div class="project-info">
+                <h3>Dettagli d'arredo</h3>
+                <p>Soluzioni visive per rendere un ambiente più ordinato, personale e contemporaneo.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <div class="contact-box">
+            <div>
+              <div class="eyebrow">Contatti</div>
+              <h2>Parliamo di design.</h2>
+              <p>
+                Per collaborazioni, portfolio, progetti accademici o nuove opportunità nel mondo dell'interior design.
+              </p>
             </div>
 
-            <!-- Progetto 2 -->
-            <div class="project-card">
-                <div class="project-img">Inserisci Render/Foto qui</div>
-                <div class="project-info">
-                    <h3>Progetto di Interior 2</h3>
-                    <p>Studio dello spazio, dei materiali e dell'illuminazione artificiale/naturale.</p>
-                </div>
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:elisafoini@gmail.com">
+                <span>Email</span>
+                <span>→</span>
+              </a>
+              <a class="contact-link" href="#" target="_blank" rel="noopener">
+                <span>Instagram</span>
+                <span>→</span>
+              </a>
+              <a class="contact-link" href="#" target="_blank" rel="noopener">
+                <span>LinkedIn</span>
+                <span>→</span>
+              </a>
+              <a class="contact-link" href="#" target="_blank" rel="noopener">
+                <span>Behance</span>
+                <span>→</span>
+              </a>
             </div>
-
-            <!-- Progetto 3 -->
-            <div class="project-card">
-                <div class="project-img">Inserisci Render/Foto qui</div>
-                <div class="project-info">
-                    <h3>Progetto di Allestimento</h3>
-                    <p>Esposizione, exhibit design o micro-architettura per esami LABA.</p>
-                </div>
-            </div>
-
+          </div>
         </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- Contact / Footer -->
-    <footer id="contact">
-        <h2>Parliamo del tuo prossimo spazio</h2>
-        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Sei un'azienda, uno studio o cerchi una collaborazione? Scrivimi pure.</p>
-        
-        <a href="mailto:elisafoini@gmail.com" class="email-link">elisafoini@gmail.com</a>
-        
-        <div class="social-links">
-            <!-- Ricordati di sostituire i caratteri '#' con i tuoi link reali quando li avrai -->
-            <a href="#" target="_blank">LinkedIn</a>
-            <a href="#" target="_blank">Instagram</a>
-            <a href="#" target="_blank">Behance</a>
-        </div>
+    <footer>
+      © 2026 Elisa Foini · Interior Design Portfolio
     </footer>
-
+  </div>
 </body>
 </html>
